@@ -25,8 +25,8 @@
             android:textColorHint="#757575"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:onTextChanged="@{() -> MainViewModel.changeText()}"
-            android:text="@={MainViewModel.inputText}"
+            android:onTextChanged="@{() -> myViewModel.changeText()}"
+            android:text="@={myViewModel.inputText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
             android:id="@+id/outputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text='@{MainVeiwModel.outputText}'
+            android:text='@{myViewModel.outputText}'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
