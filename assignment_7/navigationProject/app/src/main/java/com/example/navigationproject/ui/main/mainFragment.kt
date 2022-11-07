@@ -27,10 +27,10 @@ class mainFragment : Fragment() {
         fun newInstance() = mainFragment()
     }
 
-    private var _binding2 :secondFragment? = null
+
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val binding2 get() = _binding2
+
 
 
     override fun onCreateView(
@@ -41,27 +41,48 @@ class mainFragment : Fragment() {
         return binding.root
     }
 
+    /*fun getImg(imgID: Int): mainFragmentDirections.ActionMainFragmentToSecondFragment{
+        val action: mainFragmentDirections.ActionMainFragmentToSecondFragment = mainFragmentDirections.actionMainFragmentToSecondFragment(imgID)
+    }*/
+
+
+
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
         super.onActivityCreated(savedInstanceState)
-
+        var imgid = resources.getIdentifier("android_image_1", "drawable", context?.packageName)
         binding.button1.setOnClickListener {
-            //val action:  mainFragmentDirections.ActionMainFragmentToSecondFragment = mainFragmentDirections.actionMainFragmentToSecondFragment()
-            //action.setMessage(binding2.textView2 = "image 1")
-            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_secondFragment)
+            val action:  mainFragmentDirections.ActionMainFragmentToSecondFragment = mainFragmentDirections.actionMainFragmentToSecondFragment()
+            action.setMessage("image 1")
+            action.setImg(R.drawable.android_image_1)
+            Navigation.findNavController(it).navigate(action)
+
+
+
+
 
         }
         binding.button2.setOnClickListener {
+            val action:  mainFragmentDirections.ActionMainFragmentToSecondFragment = mainFragmentDirections.actionMainFragmentToSecondFragment()
+            action.setMessage("image 2")
+            action.setImg(R.drawable.android_image_2)
+            Navigation.findNavController(it).navigate(action)
 
-            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_secondFragment)
 
         }
         binding.button3.setOnClickListener {
+            val action:  mainFragmentDirections.ActionMainFragmentToSecondFragment = mainFragmentDirections.actionMainFragmentToSecondFragment()
+            action.setMessage("image 3")
+            action.setImg(R.drawable.android_image_3)
+            Navigation.findNavController(it).navigate(action)
 
-            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_secondFragment)
+
 
 
         }
+
 
 
     }

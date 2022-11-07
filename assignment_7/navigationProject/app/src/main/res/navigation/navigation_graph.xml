@@ -23,5 +23,10 @@
             android:name="message"
             app:argType="string"
             android:defaultValue="No Message" />
+        <argument
+            android:name="img"
+            app:argType="integer"
+            android:defaultValue="0" />
+
     </fragment>
 </navigation>

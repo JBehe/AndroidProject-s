@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.net.Uri
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.net.toUri
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
+import com.example.navigationproject.databinding.ActivityMainBinding
 import com.example.navigationproject.databinding.FragmentSecondBinding
 import com.example.navigationproject.ui.main.mainFragment
+import com.example.navigationproject.ui.main.mainViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,13 +26,25 @@ private const val ARG_PARAM2 = "param2"
  * Use the [secondFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+
+
+
+
 class secondFragment : Fragment() {
     companion object{
         fun newInstance() = secondFragment
     }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private var _binding2 : FragmentSecondBinding? = null
+    private val binding2 get() = _binding2!!
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +59,8 @@ class secondFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        _binding2 = FragmentSecondBinding.inflate(inflater, container, false)
+        return binding2.root
     }
     interface OnFragmentInteractionListener{
         fun onFragmentInteraction(uri: Uri)
@@ -52,6 +70,9 @@ class secondFragment : Fragment() {
         super.onStart()
         arguments?.let {
             val args = secondFragmentArgs.fromBundle(it)
+            binding2.textView2.text = args.message
+            binding2.imageView.setImageResource(args.img)
+
 
         }
 
@@ -62,3 +83,5 @@ class secondFragment : Fragment() {
 
 
     }
+
+
